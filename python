@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.signal import butter, freqz
+
+# Sampling frequency
+Fs = 1000  # Let's assume the sampling frequency is 1000 Hz
+
+# Cutoff frequency of the high-pass filter
+Fc = 50e6  # Cutoff frequency is 50 MHz
+
+# Normalize the cutoff frequency
+Wn = Fc / (Fs / 2)
+
+# Filter order
+N = 4  # Let's assume the filter order is 4
+
+# Design the high-pass filter
+b, a = butter(N, Wn, 'high')
+
+# Frequency response of the filter
+w, h = freqz(b, a, worN=1024, fs=Fs)
+
+# Plot the frequency response of the filter
+plt.figure()
+plt.plot(0.5 * Fs * w / np.pi, np.abs(h), 'b')
+plt.title('Frequency Response of High Pass Filter')
+plt.xlabel('Frequency (Hz)')
+plt.ylabel('Magnitude')
+plt.grid()
+plt.show()
