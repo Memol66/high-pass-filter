@@ -1,8 +1,9 @@
+# 200000000000000000000000000000000
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, freqz
 
-# Sampling frequency.200000000000000000000000000000000
+# Sampling frequency.
 Fs = 1000  # Let's assume the sampling frequency is 1000 Hz
 
 # Cutoff frequency of the high-pass filter
